@@ -1,0 +1,101 @@
+% nesi.sty
+% For NeSI talks and (perhaps) technical articles
+% 2013-June-21 Tim McNamara tim.mcnamara@nesi.org.nz
+
+
+\ProvidesPackage{nesi}
+
+\RequirePackage{alltt}
+\RequirePackage{fancyhdr}
+\RequirePackage{hyperref}
+\RequirePackage{lastpage}
+\RequirePackage{listings}
+\RequirePackage{lmodern}
+\RequirePackage[table]{xcolor}
+
+%
+% GENERAL
+%
+
+\frenchspacing
+\hyphenation{NeSI}
+\renewcommand{\ttdefault}{pcr}
+
+\definecolor{nesidark}{HTML}{2F4447}
+\definecolor{nesilight}{HTML}{CED9DF}
+\definecolor{nesigrey}{gray}{0.6}
+\definecolor{nesigray}{gray}{0.6}
+
+
+
+%
+% TABLES
+%
+
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{1}{white}{nesilight!20}
+\arrayrulecolor{nesilight}
+
+
+
+%
+% HYPERLINKS
+%
+
+\hypersetup{
+  colorlinks=true,
+  citebordercolor=nesilight,
+  linkcolor=nesidark,
+  linkbordercolor=nesilight,
+  urlcolor=nesidark,
+  urlbordercolor=nesidark,
+  filecolor=nesidark
+}
+
+\makeatletter
+\Hy@AtBeginDocument{
+  \def\@pdfborder{0 0 1}
+  \def\@pdfborderstyle{/S/U/W 0.2}
+}
+\makeatother
+
+
+
+%
+% LISTINGS
+%
+
+\lstset{
+  frame=single,
+  rulecolor=\color{nesilight},
+  keywordstyle=\bfseries\color{nesidark},
+  commentstyle=\color{nesigrey}
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\color{nesilight},
+  basicstyle=\ttfamily
+}
+
+
+
+%
+% HEADERS
+%
+
+\fancypagestyle{firstpage}{
+  \fancyhf{} % reset
+  \fancyfoot[C]{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{followingpage}{
+  \fancyhf{} % reset
+  \fancyhead[LE,RO]{\thepage} 
+  \fancyfoot[C]{\url{https://www.nesi.org.nz}}
+  \renewcommand{\headrulewidth}{0.2pt}
+  \renewcommand{\footrulewidth}{0.7pt}
+}
+\pagestyle{followingpage}
+\AtBeginDocument{\thispagestyle{firstpage}}

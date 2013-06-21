@@ -1,0 +1,12 @@
+Keeping our text dapper since 2013.
+
+If you don't know how to import a 
+new LaTeX package, your best bet is 
+http://tex.stackexchange.com/q/21726/.  
+However, this should get you 
+somewhere:
+
+  \RequirePackage{nesi}
+
+
+Pull requests are welcome. 

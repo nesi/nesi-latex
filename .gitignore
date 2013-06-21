@@ -1,0 +1,6 @@
+# ((pdf)la)tex output
+*.pdf
+*.log
+*.dvi
+*.out
+*.aux
